@@ -12,8 +12,7 @@ import {
   ListGroupItem,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { addToCart } from "../actions/cartAction";
-//import { CART_REMOVE_ITEM } from "../constants/cartConstants";
+import { addToCart, removeFromCart } from "../actions/cartAction";
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
@@ -26,7 +25,7 @@ const CartScreen = ({ match, location, history }) => {
   const { cartItems } = cart;
 
   const removeFromCartHandler = (id) => {
-    console.log("remove");
+      dispatch(removeFromCart(id)); 
   };
 
   const checkoutHandler = (id) => {
